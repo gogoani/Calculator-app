@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Item Calculator Widget</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f2f5;
+      margin: 0;
+      padding: 20px;
+    }
+    .calculator-container {
+      max-width: 600px;
+      background-color: #fff;
+      margin: auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .calculator-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .calculate-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .calculate-btn:hover {
+      background-color: #0056b3;
+    }
+    .results {
+      margin-top: 20px;
+      background-color: #e9f7ef;
+      padding: 15px;
+      border-radius: 6px;
+    }
+    .results p {
+      margin: 8px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator-container">
+    <h2>Item Calculator</h2>
+    <div class="form-group">
+      <label for="itemPrice">Item Price</label>
+      <input type="number" id="itemPrice" placeholder="Enter item price">
+    </div>
+    <div class="form-group">
+      <label for="pc">Packaging Charge (PC)</label>
+      <input type="number" id="pc" placeholder="Enter packaging charge">
+    </div>
+    <div class="form-group">
+      <label for="gst">GST %</label>
+      <input type="number" id="gst" placeholder="Enter GST percentage">
+    </div>
+    <div class="form-group">
+      <label for="discount">Total Discount</label>
+      <input type="number" id="discount" placeholder="Enter discount amount">
+    </div>
+    <div class="form-group">
+      <label for="mxDiscount">Mx Discount</label>
+      <input type="number" id="mxDiscountInput" placeholder="Enter Mx discount">
+    </div>
+    <div class="form-group">
+      <label for="sDiscount">S Discount</label>
+      <input type="number" id="sDiscountInput" placeholder="Enter S discount">
+    </div>
+    <button class="calculate-btn" onclick="calculateTotals()">Calculate</button>
+
+    <div class="results" id="results">
+      <p><strong>Item Total + PC without code:</strong> ₹<span id="itemTotal"></span></p>
+      <p><strong>Res GST with code:</strong> ₹<span id="resGst"></span></p>
+      <p><strong>Total discount applied:</strong> ₹<span id="totalDiscount"></span></p>
+      <p><strong>ACV with code:</strong> ₹<span id="acv"></span></p>
+      <p><strong>Mx share:</strong> ₹<span id="mxShare"></span></p>
+      <p><strong>S share:</strong> ₹<span id="sShare"></span></p>
+    </div>
+  </div>
+
+  <script>
+    function calculateTotals() {
+      const itemPrice = parseFloat(document.getElementById('itemPrice').value) || 0;
+      const pc = parseFloat(document.getElementById('pc').value) || 0;
+      const gstRate = parseFloat(document.getElementById('gst').value) || 0;
+      const discount = parseFloat(document.getElementById('discount').value) || 0;
+      const mxDiscount = parseFloat(document.getElementById('mxDiscountInput').value) || 0;
+      const sDiscount = parseFloat(document.getElementById('sDiscountInput').value) || 0;
+
+      const totalWithoutCode = itemPrice + pc;
+      const gstAmount = (itemPrice * gstRate) / 100;
+      const acv = totalWithoutCode + gstAmount - discount;
+
+      const mxShare = acv * 0.6;
+      const sShare = acv * 0.4;
+
+      document.getElementById('itemTotal').textContent = totalWithoutCode.toFixed(2);
+      document.getElementById('resGst').textContent = gstAmount.toFixed(2);
+      document.getElementById('totalDiscount').textContent = discount.toFixed(2);
+      document.getElementById('acv').textContent = acv.toFixed(2);
+      document.getElementById('mxShare').textContent = mxShare.toFixed(2);
+      document.getElementById('sShare').textContent = sShare.toFixed(2);
+    }
+  </script>
+</body>
+</html>
