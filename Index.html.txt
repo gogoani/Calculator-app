@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Item Calculator Widget</title>
   <style>
     body {
@@ -67,37 +67,61 @@
     <h2>Item Calculator</h2>
     <div class="form-group">
       <label for="itemPrice">Item Price</label>
-      <input type="number" id="itemPrice" placeholder="Enter item price">
+      <input type="number" id="itemPrice" placeholder="Enter item price" />
     </div>
     <div class="form-group">
       <label for="pc">Packaging Charge (PC)</label>
-      <input type="number" id="pc" placeholder="Enter packaging charge">
+      <input type="number" id="pc" placeholder="Enter packaging charge" />
     </div>
     <div class="form-group">
       <label for="gst">GST %</label>
-      <input type="number" id="gst" placeholder="Enter GST percentage">
+      <input type="number" id="gst" placeholder="Enter GST percentage" />
     </div>
     <div class="form-group">
       <label for="discount">Total Discount</label>
-      <input type="number" id="discount" placeholder="Enter discount amount">
+      <input type="number" id="discount" placeholder="Enter discount amount" />
     </div>
     <div class="form-group">
       <label for="mxDiscount">Mx Discount</label>
-      <input type="number" id="mxDiscountInput" placeholder="Enter Mx discount">
+      <input
+        type="number"
+        id="mxDiscountInput"
+        placeholder="Enter Mx discount"
+      />
     </div>
     <div class="form-group">
       <label for="sDiscount">S Discount</label>
-      <input type="number" id="sDiscountInput" placeholder="Enter S discount">
+      <input
+        type="number"
+        id="sDiscountInput"
+        placeholder="Enter S discount"
+      />
     </div>
     <button class="calculate-btn" onclick="calculateTotals()">Calculate</button>
 
     <div class="results" id="results">
-      <p><strong>Item Total + PC without code:</strong> ₹<span id="itemTotal"></span></p>
-      <p><strong>Res GST with code:</strong> ₹<span id="resGst"></span></p>
-      <p><strong>Total discount applied:</strong> ₹<span id="totalDiscount"></span></p>
-      <p><strong>ACV with code:</strong> ₹<span id="acv"></span></p>
-      <p><strong>Mx share:</strong> ₹<span id="mxShare"></span></p>
-      <p><strong>S share:</strong> ₹<span id="sShare"></span></p>
+      <p>
+        <strong>Item Total + PC without code:</strong> ₹<span
+          id="itemTotal"
+        ></span>
+      </p>
+      <p>
+        <strong>Res GST with code:</strong> ₹<span id="resGst"></span>
+      </p>
+      <p>
+        <strong>Total discount applied:</strong> ₹<span
+          id="totalDiscount"
+        ></span>
+      </p>
+      <p>
+        <strong>ACV with code:</strong> ₹<span id="acv"></span>
+      </p>
+      <p>
+        <strong>Mx share:</strong> ₹<span id="mxShare"></span>
+      </p>
+      <p>
+        <strong>S share:</strong> ₹<span id="sShare"></span>
+      </p>
     </div>
   </div>
 
